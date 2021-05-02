@@ -2,6 +2,8 @@
 import { GraphQLObjectType, GraphQLSchema, GraphQLID } from 'graphql';
 import { BookType, AuthorType } from './types';
 import _ from 'lodash';
+//importing dummy data
+import { authors, books } from '../data';
 
 //queries
 const RootQuery = new GraphQLObjectType({
@@ -16,6 +18,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent: any, args: any) {
         //get data from db
+        return _.find(books, { id: args.id });
       },
     },
     author: {
@@ -27,6 +30,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent: any, args: any) {
         //get data from db
+        return _.find(authors, { id: args.id });
       },
     },
   },

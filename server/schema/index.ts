@@ -1,5 +1,5 @@
 //importing dependencies
-const graphql = require('graphql');
+import graphql from 'graphql';
 
 //destructuring
 const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;

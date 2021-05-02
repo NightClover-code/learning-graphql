@@ -1,9 +1,10 @@
 //importing dependencies
-const express = require('express');
-const { graphqlHTTP } = require('express-graphql');
-require('dotenv').config();
+import express from 'express';
+import { graphqlHTTP } from 'express-graphql';
+import dotenv from 'dotenv';
 
-//initializing app
+//dotenv & app init
+dotenv.config();
 const app = express();
 
 //routes

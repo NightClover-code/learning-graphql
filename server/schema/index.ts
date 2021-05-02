@@ -1,8 +1,5 @@
 //importing dependencies
-import graphql from 'graphql';
-
-//destructuring
-const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
+import { GraphQLObjectType, GraphQLString, GraphQLSchema } from 'graphql';
 
 //graphql types
 const BookType = new GraphQLObjectType({

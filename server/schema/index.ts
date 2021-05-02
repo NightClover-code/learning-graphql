@@ -1,5 +1,6 @@
 //importing dependencies
 import { GraphQLObjectType, GraphQLString, GraphQLSchema } from 'graphql';
+import _ from 'lodash';
 
 //graphql types
 const BookType = new GraphQLObjectType({
@@ -28,7 +29,7 @@ const RootQuery = new GraphQLObjectType({
           type: GraphQLString,
         },
       },
-      resolve(parent, args) {
+      resolve(parent: any, args: any) {
         //get data from db
       },
     },

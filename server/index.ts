@@ -8,11 +8,12 @@ import schema from './schema';
 dotenv.config();
 const app = express();
 
-//routes
+//middlewares
 app.use(
   '/graphql',
   graphqlHTTP({
     schema,
+    graphiql: true,
   })
 );
 

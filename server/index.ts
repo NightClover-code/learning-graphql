@@ -2,13 +2,19 @@
 import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
 import dotenv from 'dotenv';
+import { schema } from './schema';
 
 //dotenv & app init
 dotenv.config();
 const app = express();
 
 //routes
-app.use('/graphql', graphqlHTTP({}));
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+  })
+);
 
 //listening
 const PORT = process.env.PORT;

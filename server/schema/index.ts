@@ -4,6 +4,8 @@ import {
   GraphQLSchema,
   GraphQLID,
   GraphQLList,
+  GraphQLString,
+  GraphQLInt,
 } from 'graphql';
 import { BookType, AuthorType } from './types';
 import _ from 'lodash';
@@ -49,6 +51,24 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return authors;
       },
+    },
+  },
+});
+
+const Mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addAuthor: {
+      type: AuthorType,
+      args: {
+        name: {
+          type: GraphQLString,
+        },
+        age: {
+          type: GraphQLInt,
+        },
+      },
+      resolve(parent, args) {},
     },
   },
 });

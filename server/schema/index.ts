@@ -1,5 +1,10 @@
 //importing graphql types
-import { GraphQLObjectType, GraphQLSchema, GraphQLID } from 'graphql';
+import {
+  GraphQLObjectType,
+  GraphQLSchema,
+  GraphQLID,
+  GraphQLList,
+} from 'graphql';
 import { BookType, AuthorType } from './types';
 import _ from 'lodash';
 //importing dummy data
@@ -31,6 +36,18 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         //get data from db
         return _.find(authors, { id: args.id });
+      },
+    },
+    books: {
+      type: GraphQLList(BookType),
+      resolve(parent, args) {
+        return books;
+      },
+    },
+    authors: {
+      type: GraphQLList(AuthorType),
+      resolve(parent, args) {
+        return authors;
       },
     },
   },

@@ -1,21 +1,23 @@
 //importing dependencies
 import express from 'express';
-import { graphqlHTTP } from 'express-graphql';
 import dotenv from 'dotenv';
-import schema from './schema';
+//importing graphql utils
+import { ApolloServer } from 'apollo-server-express';
+import { typeDefs } from './schema/typeDefs';
+import { resolvers } from './schema/resolvers';
 
 //dotenv & app init
 dotenv.config();
 const app = express();
 
+//init apollo server
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
 //middlewares
-app.use(
-  '/graphql',
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-  })
-);
+server.applyMiddleware({ app });
 
 //listening
 const PORT = process.env.PORT;

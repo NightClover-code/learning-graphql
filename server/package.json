@@ -9,6 +9,7 @@
     "dev": "concurrently --kill-others \"yarn run start\" \"yarn run serve\""
   },
   "dependencies": {
+    "apollo-server-express": "^2.24.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",

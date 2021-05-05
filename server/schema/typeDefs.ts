@@ -8,17 +8,20 @@ export const typeDefs = gql`
     id: ID!
     name: String!
     genre: String!
-    author: Author!
+    # author: Author!
   }
   type Author {
     id: ID!
     name: String!
     age: Int!
-    books: [Book!]!
+    # books: [Book!]!
   }
   # queries
   type Query {
-    getAllBooks: [Book!]!
+    books: [Book!]!
   }
   # Mutations
+  type Mutation {
+    addBook(id: ID!, name: String!, genre: String!): Book!
+  }
 `;

@@ -16,10 +16,9 @@ export const resolvers = {
     books: (_author: any) => _.filter(books, { authorId: _author.id }),
   },
   Mutation: {
-    addBook(parent: any, bookParams: any) {
-      const newBook = bookParams;
-      books.push(newBook);
-      return newBook;
+    addBook: (parent: any, { input }: any) => {
+      books.push(input);
+      return input;
     },
   },
 };

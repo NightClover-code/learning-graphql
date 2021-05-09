@@ -28,7 +28,20 @@ export const typeDefs = gql`
 
   # Mutations
   type Mutation {
-    addBook(id: ID!, name: String!, genre: String!): Book!
-    addAuthor(id: ID!, name: String!, age: Int!): Author!
+    addBook(input: AddBook): Book!
+    addAuthor(input: AddAuthor): Author!
+  }
+
+  # inputs
+  input AddBook {
+    id: ID!
+    name: String!
+    genre: String!
+  }
+
+  input AddAuthor {
+    id: ID!
+    name: String!
+    age: Int!
   }
 `;

@@ -4,9 +4,7 @@ import { books } from '../data';
 //resolvers
 export const resolvers = {
   Query: {
-    books: () => {
-      return books;
-    },
+    books: () => books,
   },
   Mutation: {
     addBook(parent: any, args: any) {
